@@ -1,5 +1,6 @@
 import { ToDo } from "../models/ToDoModel.js";
 
+// ToDo
 const getToDo = async (req, res) => {
     const toDo = await ToDo.find();
     res.send(toDo);

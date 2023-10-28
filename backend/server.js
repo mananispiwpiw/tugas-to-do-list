@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import { router as routes } from "./api/routes/ToDoRoute.js";
+import { router as todoRoutes } from "./api/routes/ToDoRoute.js";
+import { router as authRoutes } from "./api/routes/authRoute.js";
+
 import "dotenv/config";
 import cors from "cors";
 
@@ -16,7 +18,8 @@ mongoose
     .then(() => console.log("Connected to Database"))
     .catch((err) => console.log(err));
 
-app.use(routes);
+app.use(authRoutes);
+app.use(todoRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
